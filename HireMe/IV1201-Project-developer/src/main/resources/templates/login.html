@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Content -->
+<div class="d-flex justify-content-center align-items-center" style="height: 93vh;">
+    <div class="container shadow p-4 bg-white rounded" style="width: 400px;">
+        <form action="#" th:action="@{/login}" method="post">
+            <h1 class="text-center">Login</h1>
+            <hr class="hr hr-blurry" />
+            <div th:if="${param.error}" class="error-message mb-3 text-center">Invalid username and/or password.</div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" required />
+
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">⚿</span>
+                </div>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required />
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+            <div class="mb-3 text-center">
+                <a href="/register">Register an account.</a>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Footer -->
+<footer th:replace="~{../static/fragments/footer :: footer}"></footer>
+</body>
+</html>

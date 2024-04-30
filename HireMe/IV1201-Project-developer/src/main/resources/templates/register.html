@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+<section class="d-flex justify-content-center align-items-center" style="margin-top: 11vh; margin-bottom: 11vh;">
+    <div class="container shadow p-4 bg-white rounded" style="width: 400px;">
+        <form th:action="@{/register}" th:object="${person}" method="post">
+            <h2 class="text-center">Register</h2>
+            <hr class="hr hr-blurry" />
+            <!-- Name Section -->
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col">
+                        <small><div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" th:field="*{name}" class="form-control" placeholder="First name" required />
+                    </div>
+                </div>
+            </div>
+            <!-- Surname Section -->
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col">
+                        <small><div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" th:field="*{surname}" class="form-control" placeholder="Last Name" required />
+                    </div>
+                </div>
+            </div>
+            <!-- Pnr Section -->
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col">
+                        <small><div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('pnr')}" th:errors="*{pnr}"></div></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" th:field="*{pnr}" class="form-control" placeholder="Personal number" required />
+                    </div>
+                </div>
+            </div>
+            <!-- Email Section -->
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col">
+                        <small><div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" th:field="*{email}" class="form-control" placeholder="Email" required />
+                    </div>
+                </div>
+            </div>
+            <!-- Username Section -->
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col">
+                        <small><div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" th:field="*{username}" class="form-control" placeholder="Username" required />
+                    </div>
+                </div>
+            </div>
+            <!-- Password Section -->
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col">
+                        <small><div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="password" th:field="*{password}" class="form-control" placeholder="Password" required />
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+            <div class="mb-3 text-center">
+                <a href="/login">Login to existing account.</a>
+            </div>
+        </form>
+    </div>
+</section>
+<footer th:replace="~{../static/fragments/footer :: footer}"></footer>
+</body>
+</html>
